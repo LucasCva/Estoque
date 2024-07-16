@@ -1,7 +1,8 @@
-package io.lucas.estoque.service;
+package io.lucas.estoque.rest.service;
 
-import io.lucas.estoque.model.Categoria;
-import io.lucas.estoque.repository.CategoriaRepository;
+import io.lucas.estoque.domain.model.Categoria;
+import io.lucas.estoque.domain.repository.CategoriaRepository;
+import org.hibernate.validator.internal.constraintvalidators.bv.AssertTrueValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class CategoriaService {
     @Autowired
     public CategoriaService(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
+
     }
 
     public List<Categoria> getAllCategoria(){
@@ -26,9 +28,9 @@ public class CategoriaService {
        return categoriaRepository.save(categoria);
     }
 
-    public Categoria removeCategoria(String nome){
-        Categoria categoriaAtual = categoriaRepository.findByNome(nome);
-        categoriaRepository.delete(categoriaAtual);
+    public Optional<Categoria> removeCategoria(String nome) {
+        Optional<Categoria> categoriaAtual = categoriaRepository.findByNome(nome);
+        categoriaAtual.ifPresent(categoriaRepository::delete);
         return categoriaAtual;
     }
 }

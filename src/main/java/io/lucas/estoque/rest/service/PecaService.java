@@ -1,7 +1,7 @@
-package io.lucas.estoque.service;
+package io.lucas.estoque.rest.service;
 
-import io.lucas.estoque.model.Peca;
-import io.lucas.estoque.repository.PecaRepository;
+import io.lucas.estoque.domain.model.Peca;
+import io.lucas.estoque.domain.repository.PecaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

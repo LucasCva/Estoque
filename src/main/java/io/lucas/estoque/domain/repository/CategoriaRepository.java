@@ -1,13 +1,11 @@
-package io.lucas.estoque.repository;
+package io.lucas.estoque.domain.repository;
 
-import io.lucas.estoque.model.Categoria;
+import io.lucas.estoque.domain.model.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
-    public Categoria findByNome(String nome);
-
-
+    public Optional<Categoria> findByNome(String nome);
 
 }

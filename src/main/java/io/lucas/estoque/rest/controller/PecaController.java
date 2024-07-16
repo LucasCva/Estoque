@@ -1,7 +1,7 @@
-package io.lucas.estoque.controller;
+package io.lucas.estoque.rest.controller;
 
-import io.lucas.estoque.model.Peca;
-import io.lucas.estoque.service.PecaService;
+import io.lucas.estoque.domain.model.Peca;
+import io.lucas.estoque.rest.service.PecaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +27,9 @@ public class PecaController {
     }
 
     @GetMapping()
-    @ResponseBody
     public ResponseEntity<List<Peca>> getAllPecas(){
         List<Peca> pecas = pecaService.getAllPecas();
-        return new ResponseEntity<>(pecas, HttpStatus.OK);
+        return new ResponseEntity<>(pecas, HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/{codigo}")

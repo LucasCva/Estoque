@@ -1,6 +1,6 @@
-package io.lucas.estoque.repository;
+package io.lucas.estoque.domain.repository;
 
-import io.lucas.estoque.model.Peca;
+import io.lucas.estoque.domain.model.Peca;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
