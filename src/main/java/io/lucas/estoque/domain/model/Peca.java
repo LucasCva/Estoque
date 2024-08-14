@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,20 +18,20 @@ public class Peca {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotBlank
+    @NotEmpty(message = "Campo código é obrigatório")
     private String codigo;
 
-    @NotBlank
+    @NotEmpty(message = "Campo nome é obrigatório")
     private String nome;
 
+    @NotEmpty(message = "Campo descrição é obrigatório")
     private String descricao;
 
-    @NotBlank
+    @NotEmpty(message = "Campo categoria é obrigatório")
     private String categoria;
 
     private Integer quantidade;
 
     private String dot; // Departamento de transporte
-
 
 }

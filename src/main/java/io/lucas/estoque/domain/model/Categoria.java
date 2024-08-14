@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +17,7 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotBlank
+    @NotEmpty(message = "campo nome é obrigatório")
     private String nome;
 
 }

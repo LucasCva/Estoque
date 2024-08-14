@@ -1,12 +1,18 @@
 package io.lucas.estoque.rest.dto;
 
-import java.util.Arrays;
-import java.util.List;
+import lombok.Data;
 
+import java.util.Date;
+
+@Data
 public class ApiErrors {
-    private List<String> errors;
+   private Date timestamp;
+   private String message;
+   private String details;
 
-    public ApiErrors(String mensagemErro){
-        this.errors = Arrays.asList(mensagemErro);
+    public ApiErrors(Date timestamp, String message, String details) {
+        this.timestamp = timestamp;
+        this.message = message;
+        this.details = details;
     }
 }

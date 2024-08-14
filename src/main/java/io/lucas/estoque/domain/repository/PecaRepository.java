@@ -8,5 +8,5 @@ import java.util.List;
 public interface PecaRepository extends JpaRepository<Peca, Long> {
     public Peca findByCodigo(String codigo);
 
-    public List<Peca> findByCategoria(String categoriaNome);
+    public List<Peca> findByCategoria(String categoria_Name);
 }

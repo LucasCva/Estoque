@@ -2,9 +2,16 @@ package io.lucas.estoque.rest.service;
 
 import io.lucas.estoque.domain.model.Peca;
 import io.lucas.estoque.domain.repository.PecaRepository;
+import io.lucas.estoque.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -32,7 +39,15 @@ public class PecaService {
 
     // get item by id
     public Peca getPecaByCodigo(String codigo) {
-        return repository.findByCodigo(codigo);
+        Peca peca = repository.findByCodigo(codigo);
+        if (peca == null){
+            throw new NotFoundException("Peça não encontrada: " + codigo);
+        }
+        return peca;
+    }
+
+    public List<Peca> getPecaByCategoria(String name_categoria){
+        return repository.findByCategoria(name_categoria);
     }
 
     // updates the quantity in stock
