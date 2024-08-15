@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.Lucas</groupId>
 	<artifactId>Estoque</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Estoque</name>
 	<description>Estoque</description>
 	<url/>

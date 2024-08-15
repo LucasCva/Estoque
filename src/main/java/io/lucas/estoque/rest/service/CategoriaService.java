@@ -27,9 +27,9 @@ public class CategoriaService {
        return categoriaRepository.save(categoria);
     }
 
-    public Optional<Categoria> removeCategoria(String nome) {
-        Optional<Categoria> categoriaAtual = categoriaRepository.findByNome(nome);
-        categoriaAtual.ifPresent(categoriaRepository::delete);
-        return categoriaAtual;
+    public Optional<List<Categoria>> removeCategoria(String nome) {
+        Optional<List<Categoria>> categorias = categoriaRepository.findAllByNome(nome);
+        categorias.ifPresent(categoriaRepository::deleteAll);
+        return categorias;
     }
 }

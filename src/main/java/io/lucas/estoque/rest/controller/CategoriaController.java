@@ -37,7 +37,7 @@ public class CategoriaController {
 
    @DeleteMapping("/{nome}")
    public ResponseEntity<Void> deletarCategoria(@PathVariable String nome){
-       Categoria categoria = service
+       List<Categoria> categorias = service
                .removeCategoria(nome)
                .orElseThrow(() -> new RegraNegocioException("Não foi possível localizar a categoria"));
        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
